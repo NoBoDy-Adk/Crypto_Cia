@@ -5,9 +5,9 @@ ALPHABET_SIZE = 26
 HASH_HEX_LEN  = 64   # 32 bytes * 2 hex chars each
 
 
-# ---------------------------------------------
+
 #  HELPERS
-# ---------------------------------------------
+
 
 def mod_inverse(a: int, m: int) -> int:
     if math.gcd(a, m) != 1:
@@ -24,9 +24,8 @@ def mod_inverse(a: int, m: int) -> int:
     return old_s % m
 
 
-# ---------------------------------------------
-#  FNV-1a HASH  (no built-in hash library)
-# ---------------------------------------------
+#  FNV-1a HASH 
+
 
 def fnv1a_hash(data: str) -> bytes:
 
@@ -61,10 +60,8 @@ def compute_hash(ciphertext: str, salt: str) -> str:
     """fnv1a_hash(salt + ciphertext) -> hex string (64 chars)."""
     return fnv1a_hash(salt + ciphertext).hex()
 
-
-# ---------------------------------------------
 #  MULTIPLICATIVE CIPHER
-# ---------------------------------------------
+
 
 def mult_encrypt(plaintext: str, key: int) -> str:
     if math.gcd(key, ALPHABET_SIZE) != 1:
@@ -90,10 +87,8 @@ def mult_decrypt(ciphertext: str, key: int) -> str:
             result.append(ch)
     return "".join(result)
 
+#  ENCRYPTION 
 
-# ---------------------------------------------
-#  ENCRYPTION PIPELINE  (Sender)
-# ---------------------------------------------
 
 def encrypt_and_transmit(plaintext: str, mult_key: int, salt: str) -> dict:
     # Step 1 -- multiplicative cipher
@@ -114,10 +109,7 @@ def encrypt_and_transmit(plaintext: str, mult_key: int, salt: str) -> dict:
     }
 
 
-# ---------------------------------------------
-#  DECRYPTION PIPELINE  (Receiver)
-# ---------------------------------------------
-
+#  DECRYPTION PIPELINE  
 def receive_and_decrypt(transmission: str, mult_key: int, salt: str) -> dict:
     # Step 1 -- split: last 64 chars = hash hex, rest = ciphertext
     recv_hash_hex = transmission[-HASH_HEX_LEN:]
@@ -144,11 +136,7 @@ if __name__ == "__main__":
     SALT      = "s3cr3t!"
     plaintext = input("Plaintext: ")
 
-    sep = "=" * 62
-    print(sep)
-    print("  MULTIPLICATIVE CIPHER  +  FNV-1a HASH")
-    print("  Format: ciphertext + fnv1a(salt + ciphertext)")
-    print(sep)
+    print("  MULTIPLICATIVE CIPHER  ")
 
     # -- SENDER --
     print("\n[ SENDER ]")
