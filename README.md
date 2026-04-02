@@ -102,3 +102,9 @@ Plaintext: hello123
   Integrity    : VALID
   Plaintext    : hello123
 
+test cases:
+    (9, "hello 123"),
+    (7, "hello123"),
+    (5, "HELLO"),
+    (11, "@hello!"),
+    (3, ""),

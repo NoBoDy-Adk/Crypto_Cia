@@ -7,10 +7,7 @@ def run_test(key, text):
     with patch("builtins.input", side_effect=[str(key), text]):
         main()
 
-
-# ==============================
 # TEST CASES
-# ==============================
 
 tests = [
     (9, "hello 123"),
