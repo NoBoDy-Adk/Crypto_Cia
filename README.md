@@ -98,4 +98,10 @@ Plaintext: hello123
   Plaintext    : hello123
 
 
-  
+test case:
+1:
+   key:7
+   plaintext:hello123
+2:
+   key:9
+   plaintext:hello 123
