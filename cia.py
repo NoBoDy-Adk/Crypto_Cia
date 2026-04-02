@@ -94,7 +94,7 @@ def receive_and_decrypt(transmission: str, mult_key: int, salt: str) -> dict:
         "plaintext"    : plaintext,
     }
 
-if __name__ == "__main__":
+def main():
     MULT_KEY  = int(input("Valid keys: 1,3,5,7,9,11,15,17,19,21,23,25:: "))
     SALT      = "s3cr3t!"
     plaintext = input("Plaintext: ")
@@ -119,3 +119,5 @@ if __name__ == "__main__":
     print(f"  Exp  hash    : {r['exp_hash_hex']}")
     print(f"  Integrity    : {'VALID' if r['integrity'] else 'TAMPERED'}")
     print(f"  Plaintext    : {r['plaintext']}")
+
+if __name__ == "__main__": main()

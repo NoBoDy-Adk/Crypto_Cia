@@ -1,3 +1,13 @@
+
+
+
+"how to run:
+   python testcases.py
+"
+
+
+
+
 Multiplicative Cipher for encryption
  A custom hash function (FNV-1a based, without using any built-in hash libraries)
  A fixed salt for integrity verification
@@ -51,11 +61,6 @@ Received transmission
 ->decrypt ciphertext using multiplicative cipher inverse
 ->Return plaintext
 
-
-
-how to run:
-   python cia.py
-
 example:
 
 Valid keys: 1,3,5,7,9,11,15,17,19,21,23,25:: 9
@@ -97,11 +102,3 @@ Plaintext: hello123
   Integrity    : VALID
   Plaintext    : hello123
 
-
-test case:
-1:
-   key:7
-   plaintext:hello123
-2:
-   key:9
-   plaintext:hello 123
